@@ -39,7 +39,7 @@ public class Images {
         { 0f,  0f,  0f}
     };
 
-    final var kernel = sharpen;
+    final var kernel = id;
 
     // Apply the kernel to the image
     for (int x = 0; x < width; x++) {
@@ -69,11 +69,14 @@ public class Images {
   }
 
 
+  // Helper Functions
+  // ----------------
+
   /**
    * Renders a grayscale image from the given array and saves it to the specified file.
    *
    * @param imageArray The 2D array of grayscale values
-   * @param filename   The name of the file to save the image to
+   * @param filename    The name of the file to save the image to
    */
   public static void writeImage(int[][] imageArray, String filename) throws IOException {
     int width = imageArray[0].length;
@@ -95,6 +98,12 @@ public class Images {
     ImageIO.write(image, "png", new File(filename));
   }
 
+  /**
+   *
+   * @param filename The name of the file to read the image from
+   * @return grayscale image as a 2D array of integers (with grayscale values between 0-255).
+   * @throws IOException if the image cannot be read
+   */
   private static int[][] readImage(String filename) throws IOException {
 
     BufferedImage image = ImageIO.read(new File(filename));

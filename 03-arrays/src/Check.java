@@ -1,3 +1,6 @@
+/**
+ * A helper class that allows us to write tests in the style of Info 1 more easily.
+ */
 public class Check {
 
   static class ExpectException extends RuntimeException {
