@@ -46,6 +46,7 @@ public class DynamicArrayOfInt {
         for (int i = 0; i < arr.count; i++) {
             rev.data[i] = arr.data[arr.count - 1 - i];
         }
+        rev.count = arr.count;
         return rev;
     }
 
