@@ -112,7 +112,10 @@ public class Graph {
             v.visited = true;
             System.out.print(v.id + " ");
 
-            for (Vertex dest : v.neighbors) {  // use v.neighbors.reversed() for same order as recursive DFS
+            // This iteration will result in visiting neighbors in reverse order compared to the recursive version.
+            // Use v.neighbors.reversed() for same order as recursive DFS.
+            // [or for better efficiency: (Iterable<Vertex>) v.neighbors::descendingIterator]
+            for (Vertex dest : v.neighbors) {
                 if (!dest.visited) {
                     dest.parent = v;
                     dest.distance = v.distance + 1;
